@@ -46,6 +46,13 @@ function renderTasks() {
         else if (task.status === 'progress') colProgress.innerHTML += cardHtml;
         else if (task.status === 'done') colDone.innerHTML += cardHtml;
     });
+        const countTodo = document.getElementById('count-todo');
+    const countProgress = document.getElementById('count-progress');
+    const countDone = document.getElementById('count-done');
+
+    if (countTodo) countTodo.textContent = tasks.filter(task => task.status === 'todo').length;
+    if (countProgress) countProgress.textContent = tasks.filter(task => task.status === 'progress').length;
+    if (countDone) countDone.textContent = tasks.filter(task => task.status === 'done').length;
 }
 
 function moveTask(id, direction) {
